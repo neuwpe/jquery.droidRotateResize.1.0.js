@@ -11,13 +11,13 @@
 	@modified	:	2012-02-17 22:04
 	@since			:	2012-02-17 14:54
 */
-
-
+(function($){
 	$.fn.droidRotateResize = ( function(o)
 	{
 		var me = $(this);
 		var ex = $.extend({}, {
-			played_func				:	function(){}
+			negativesize		:	0,
+			callback				:	function(){}
 		}, o);
 		var f = {
 			landscape	:	320,
@@ -32,11 +32,13 @@
 			rotate			:	function()
 			{
 				if(/Android/.test(window.navigator.userAgent)){
-					f.landscape = $(window).width();
+					f.landscape = $(window).width()-f.negativesize;
 					me.css({ width: f.landscape });
+					if( typeof f.callback == 'function' && f.callback ) f.callback(f.landscape);
 				}
 			}
 		}
 		f.build();
 		return this;
 	});
+})(jQuery);
