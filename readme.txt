@@ -5,3 +5,5 @@ Androidブラウザでデバイスを傾けた際に、
 使い方はHow toを参照ください。
 
 https://github.com/neuwpe/jquery.droidRotateResize.1.0.js/wiki/How-to-use
+
+author: tsuyoshi higuchi (http://wpe.jp)
